@@ -1,0 +1,259 @@
+21:19:51.672 [main] INFO  be.nabu.libs.http.acme.AcmeClient - Retrieving directory from: https://acme-staging.api.letsencrypt.org/directory
+21:19:52.046 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:52.049 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - GET /directory HTTP/1.1
+
+21:19:52.050 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 0
+Host: acme-staging.api.letsencrypt.org
+
+
+21:19:52.376 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 200 OK
+Server: nginx
+Content-Type: application/json
+Content-Length: 473
+Boulder-Request-Id: URuC08NAklHihQxesoJfcXcKkTkfNyzxms3HFU6LRrg
+Replay-Nonce: TYsSyJl02NIbN6iuLFkGWf1JfdcucOpQLCdcgUvtJA0
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+Expires: Sat, 03 Jun 2017 19:19:52 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:52 GMT
+Connection: keep-alive
+
+{
+  "key-change": "https://acme-staging.api.letsencrypt.org/acme/key-change",
+  "new-authz": "https://acme-staging.api.letsencrypt.org/acme/new-authz",
+  "new-cert": "https://acme-staging.api.letsencrypt.org/acme/new-cert",
+  "new-reg": "https://acme-staging.api.letsencrypt.org/acme/new-reg",
+  "revoke-cert": "https://acme-staging.api.letsencrypt.org/acme/revoke-cert",
+  "tyXTXOr6lCE": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417"
+}
+21:19:52.378 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - New registration: https://acme-staging.api.letsencrypt.org/acme/new-reg
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - New authorization: https://acme-staging.api.letsencrypt.org/acme/new-authz
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - New certificate: https://acme-staging.api.letsencrypt.org/acme/new-cert
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - Revoke certificate: https://acme-staging.api.letsencrypt.org/acme/revoke-cert
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - Key Exchange: https://acme-staging.api.letsencrypt.org/acme/key-change
+21:19:52.567 [main] INFO  be.nabu.libs.http.acme.AcmeClient - Registering at: https://acme-staging.api.letsencrypt.org/acme/new-reg
+21:19:52.701 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:52.701 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - POST /acme/new-reg HTTP/1.1
+
+21:19:52.703 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 1852
+Host: acme-staging.api.letsencrypt.org
+Content-Type: application/jose+json
+
+eyJub25jZSI6IlRZc1N5SmwwMk5JYk42aXVMRmtHV2YxSmZkY3VjT3BRTENkY2dVdnRKQTAiLCJ1cmwiOiJodHRwczovL2FjbWUtc3RhZ2luZy5hcGkubGV0c2VuY3J5cHQub3JnL2FjbWUvbmV3LXJlZyIsImp3ayI6eyJrdHkiOiJSU0EiLCJuIjoicVAwd2lDU0VjTG9uOHNMRjhBbFFEc0pYRVJjZFRDY25ZUWVUSmZRVzZpRkx0bDZQdk1CbDJHODBLSzZINXQzWWE3S0JlbGh6aDZ4OVllUUdRYjB4RHJ2NG83RExNaExfTU5xdGNRcTg3clk5bUlhbUFrX1JPUTFocFpVdmtQZUZNNDJkUzF6ZjlzbDQtS2MyMUlXX3NwclVGTkQ0M2Rpc3NEOXNuVm5lblpnSWlQQXRONWZ6N2RaUmhhdC1xX2JCd3lVUGU3b1RxUGZaNnp0eF9HWmVlZVBVZmlXWEJRV2RxNEtSSmc5dzVBMGxNalFZWUhfdHBXV1ctaGZvckIzZ05kQ3hGVjRtbThVcHZ3Y1NRVHdiVmptS2c3NW5RdXhMUks5QVVpLW5sajNKR3hiNnhsYllRamlCUGZXd1pSTXctbUNMM3ZWbm1Xc1htMzBMSGJPVG1Ub1l2X2hZbkltZzdIeHNMYk5PNFJwaFNiOFJzQm9IZmp1MGpJTjhHOTZxTFhrNTl3Y0QzbS02NkVPb0w5LUFBdFpoY0J2R3g2Ri1SUF81Q3F0ejhjUGhBdnBJcmFpNXV3N09RZ3ZKbkNfVVpDWUp3Z1RYd1hZSkxfeC1pSTN3V3VZY1lnaGxPdFlQRGRaRTFfanR3UU0zdFhidVFRN0lNU0NHQzJwajhHYWJWaW5yRnozOEN2SmJQZjA2Nnoya2Y0N19VdGJHQmcyQXdmNTU0TENaMm5ETGZFY3RvalBUVGlNU0U1TWJNRlh3Y1JBNmtxclpkZHhUS2ozbnE5bEs0Z0dsb255TUpNbEppdkR6RG9aNjNUTlZFMGhiVm9wWVRpOGNqa2F6NGotQ01UOC0weXhBR0FwNlNmZWpNZ0F1b2NSWWU0dlhLN1dWMHpRYnc4UnkxVHMiLCJlIjoiQVFBQiJ9LCJhbGciOiJSUzI1NiJ9.eyJyZXNvdXJjZSI6ICJuZXctcmVnIn0.I8yaGXnxQJTjillqNQkF6JqWFFc-p4PrjV7lZXVGFV6ZYuptKlljFavzXh39PTFvNiZpjxAAGpfY5YcZLbTD73vvFR1mkBnxWj_2f32feDeYAt--45U0w0Fo4v7iAvzHxrqo2-sJRvhMq_rIWMNCRDgUyBtYjvCl3AEgFDggbuUGnkv1Jq04keaOG7ICCeOL7Hq3vnWZN1YDJLthGyWktJ7llzgBNHqvVH1G0S7EnP3YmRoNx1E7WlQlERgQRAjeC3DVdvqlBk10vpQSLDRlZwx7_ZgHYn4hfj0U_joXhV56gXT3U-1jF-w7iLhNlKIfIO_t_zroffKgOoN2oPNNxc02OGhgSiqVgPLqb6eXri2ewofC6NnmZT5amR_zLqtlVOyXK4IIdSjD_7V7fZxr0B3RswHFhtI4YajV7ZM6lnKH6rGLJZPLAzkPTwnXZeGwgUCIVEqRzp0kgz-qr-PMsMckaetpyNQs7mfb70QAHWwuPwzJQ8H7Aw5UeAzF_W3v-BWRcsZkZRXzqF9ADmIv8uCn1YL2hZbepwqSyp3SMfpJ-7LFR8vOI27P5mt7WamN8BIUi7thvzyyg0P5e1FdNUfxe_lFTfnjFjj4Dlxp_9lV77I0Cvsb-bWe2_EZcrYG8xZXIiGjdAr6_bKKGdszmKcMJuWN3zuEGUFwMh7nAUc
+21:19:52.703 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:52.989 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 201 Created
+Server: nginx
+Content-Type: application/json
+Content-Length: 885
+Boulder-Request-Id: ynQjPMxfZPedwqJLbwz9IfFLVsb3s0P6D2RT1oNAvPk
+Boulder-Requester: 2452925
+Link: <https://acme-staging.api.letsencrypt.org/acme/new-authz>;rel="next"
+Link: <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>;rel="terms-of-service"
+Location: https://acme-staging.api.letsencrypt.org/acme/reg/2452925
+Replay-Nonce: mMt65JZA47kaiXMZLdrpwPuB58WR_WN-eRccbv4zlQU
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+Expires: Sat, 03 Jun 2017 19:19:52 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:52 GMT
+Connection: keep-alive
+
+{
+  "id": 2452925,
+  "key": {
+    "kty": "RSA",
+    "n": "qP0wiCSEcLon8sLF8AlQDsJXERcdTCcnYQeTJfQW6iFLtl6PvMBl2G80KK6H5t3Ya7KBelhzh6x9YeQGQb0xDrv4o7DLMhL_MNqtcQq87rY9mIamAk_ROQ1hpZUvkPeFM42dS1zf9sl4-Kc21IW_sprUFND43dissD9snVnenZgIiPAtN5fz7dZRhat-q_bBwyUPe7oTqPfZ6ztx_GZeeePUfiWXBQWdq4KRJg9w5A0lMjQYYH_tpWWW-hforB3gNdCxFV4mm8UpvwcSQTwbVjmKg75nQuxLRK9AUi-nlj3JGxb6xlbYQjiBPfWwZRMw-mCL3vVnmWsXm30LHbOTmToYv_hYnImg7HxsLbNO4RphSb8RsBoHfju0jIN8G96qLXk59wcD3m-66EOoL9-AAtZhcBvGx6F-RP_5Cqtz8cPhAvpIrai5uw7OQgvJnC_UZCYJwgTXwXYJL_x-iI3wWuYcYghlOtYPDdZE1_jtwQM3tXbuQQ7IMSCGC2pj8GabVinrFz38CvJbPf066z2kf47_UtbGBg2Awf554LCZ2nDLfEctojPTTiMSE5MbMFXwcRA6kqrZddxTKj3nq9lK4gGlonyMJMlJivDzDoZ63TNVE0hbVopYTi8cjkaz4j-CMT8-0yxAGAp6SfejMgAuocRYe4vXK7WV0zQbw8Ry1Ts",
+    "e": "AQAB"
+  },
+  "contact": [],
+  "initialIp": "81.165.114.245",
+  "createdAt": "2017-06-03T19:19:52.860534765Z",
+  "Status": "valid"
+}
+21:19:52.990 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:53.004 [main] INFO  be.nabu.libs.http.acme.AcmeClient - Accepting agreement
+21:19:53.064 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:53.064 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - POST /acme/reg/2452925 HTTP/1.1
+
+21:19:53.065 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 1966
+Host: acme-staging.api.letsencrypt.org
+Content-Type: application/jose+json
+
+eyJub25jZSI6Im1NdDY1SlpBNDdrYWlYTVpMZHJwd1B1QjU4V1JfV04tZVJjY2J2NHpsUVUiLCJ1cmwiOiJodHRwczovL2FjbWUtc3RhZ2luZy5hcGkubGV0c2VuY3J5cHQub3JnL2FjbWUvcmVnLzI0NTI5MjUiLCJqd2siOnsia3R5IjoiUlNBIiwibiI6InFQMHdpQ1NFY0xvbjhzTEY4QWxRRHNKWEVSY2RUQ2NuWVFlVEpmUVc2aUZMdGw2UHZNQmwyRzgwS0s2SDV0M1lhN0tCZWxoemg2eDlZZVFHUWIweERydjRvN0RMTWhMX01OcXRjUXE4N3JZOW1JYW1Ba19ST1ExaHBaVXZrUGVGTTQyZFMxemY5c2w0LUtjMjFJV19zcHJVRk5ENDNkaXNzRDlzblZuZW5aZ0lpUEF0TjVmejdkWlJoYXQtcV9iQnd5VVBlN29UcVBmWjZ6dHhfR1plZWVQVWZpV1hCUVdkcTRLUkpnOXc1QTBsTWpRWVlIX3RwV1dXLWhmb3JCM2dOZEN4RlY0bW04VXB2d2NTUVR3YlZqbUtnNzVuUXV4TFJLOUFVaS1ubGozSkd4YjZ4bGJZUWppQlBmV3daUk13LW1DTDN2Vm5tV3NYbTMwTEhiT1RtVG9Zdl9oWW5JbWc3SHhzTGJOTzRScGhTYjhSc0JvSGZqdTBqSU44Rzk2cUxYazU5d2NEM20tNjZFT29MOS1BQXRaaGNCdkd4NkYtUlBfNUNxdHo4Y1BoQXZwSXJhaTV1dzdPUWd2Sm5DX1VaQ1lKd2dUWHdYWUpMX3gtaUkzd1d1WWNZZ2hsT3RZUERkWkUxX2p0d1FNM3RYYnVRUTdJTVNDR0MycGo4R2FiVmluckZ6MzhDdkpiUGYwNjZ6MmtmNDdfVXRiR0JnMkF3ZjU1NExDWjJuRExmRWN0b2pQVFRpTVNFNU1iTUZYd2NSQTZrcXJaZGR4VEtqM25xOWxLNGdHbG9ueU1KTWxKaXZEekRvWjYzVE5WRTBoYlZvcFlUaThjamthejRqLUNNVDgtMHl4QUdBcDZTZmVqTWdBdW9jUlllNHZYSzdXVjB6UWJ3OFJ5MVRzIiwiZSI6IkFRQUIifSwiYWxnIjoiUlMyNTYifQ.eyJhZ3JlZW1lbnQiOiAiaHR0cHM6XC9cL2xldHNlbmNyeXB0Lm9yZ1wvZG9jdW1lbnRzXC9MRS1TQS12MS4xLjEtQXVndXN0LTEtMjAxNi5wZGYiLCAicmVzb3VyY2UiOiAicmVnIn0.JUKkBAeG40PLgdCSD6rbsva2k_88YWqoJ3PydzqdNVnIesqkFuXaOGVaK-W3YzqLZakYy30MoX-dLXHQobp2VBtajgcQ0_o7sN62UInWbx3zhRe-nlgB7v6LcK4CtMrx3J2DfHHTaJPcnQvFp93u8npspu-TOPMyCmNNNAb82ygSVIVlo52PQObAIxkEP_3bRAhmleW7gVjqzfYMK69-3Vo1zcaTsrttR9t7kMzmluYG-Z2HeBRYddz6umiBtpa6aOXdM2BkLrnwvitn0ejPkHyL7g88eW0VF3LFE4wceNLrSwFmY7HNW7T66wJcRfOhgaOnMTpgMDlsNebhS6CY3MDnpiQUlYFlAqQhZefuExBF8CpTXlRLHmtAA9tgy2hx7kpmBSUdJ6Yz8y0DnwoUOXJrX2fW_wO4xG7PuNFJbLlVB-lHbXVFhk0rmYrjXSaxYVwF0MX3CH1Ha2nmjv0fYqy4W3bLRqJ2d5lKbSRoMSwnnoE3BCtHwrr-g4xZcOV160IkVBT2z43atyKW0nneoTxza5qG_gt3TI7-4aZs9hmGxz990noKrqeKCl1oqQZwn86rRrhKZYLhP67--Zq6GXHwL1H3WM0ftOh6umQrsFyG6LCl8Vj5EHR7T_hJQedYxc94JA9ffvUO4GZ9VPdjPCNP3weEnPGSa22q5QgLdfA
+21:19:53.065 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:53.396 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 202 Accepted
+Server: nginx
+Content-Type: application/json
+Content-Length: 958
+Boulder-Request-Id: uw9uQQptCavm6zVcalg1MGtM4CtjklzykJrdq_-8NXg
+Boulder-Requester: 2452925
+Link: <https://acme-staging.api.letsencrypt.org/acme/new-authz>;rel="next"
+Link: <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>;rel="terms-of-service"
+Replay-Nonce: EYByv7uZ3oi-3LNnnKENQTkeB29vqpMQinDnpW8YxV4
+Expires: Sat, 03 Jun 2017 19:19:53 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:53 GMT
+Connection: keep-alive
+
+{
+  "id": 2452925,
+  "key": {
+    "kty": "RSA",
+    "n": "qP0wiCSEcLon8sLF8AlQDsJXERcdTCcnYQeTJfQW6iFLtl6PvMBl2G80KK6H5t3Ya7KBelhzh6x9YeQGQb0xDrv4o7DLMhL_MNqtcQq87rY9mIamAk_ROQ1hpZUvkPeFM42dS1zf9sl4-Kc21IW_sprUFND43dissD9snVnenZgIiPAtN5fz7dZRhat-q_bBwyUPe7oTqPfZ6ztx_GZeeePUfiWXBQWdq4KRJg9w5A0lMjQYYH_tpWWW-hforB3gNdCxFV4mm8UpvwcSQTwbVjmKg75nQuxLRK9AUi-nlj3JGxb6xlbYQjiBPfWwZRMw-mCL3vVnmWsXm30LHbOTmToYv_hYnImg7HxsLbNO4RphSb8RsBoHfju0jIN8G96qLXk59wcD3m-66EOoL9-AAtZhcBvGx6F-RP_5Cqtz8cPhAvpIrai5uw7OQgvJnC_UZCYJwgTXwXYJL_x-iI3wWuYcYghlOtYPDdZE1_jtwQM3tXbuQQ7IMSCGC2pj8GabVinrFz38CvJbPf066z2kf47_UtbGBg2Awf554LCZ2nDLfEctojPTTiMSE5MbMFXwcRA6kqrZddxTKj3nq9lK4gGlonyMJMlJivDzDoZ63TNVE0hbVopYTi8cjkaz4j-CMT8-0yxAGAp6SfejMgAuocRYe4vXK7WV0zQbw8Ry1Ts",
+    "e": "AQAB"
+  },
+  "contact": [],
+  "agreement": "https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf",
+  "initialIp": "81.165.114.245",
+  "createdAt": "2017-06-03T19:19:52Z",
+  "Status": "valid"
+}
+21:19:53.397 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:53.455 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:53.455 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - POST /acme/new-authz HTTP/1.1
+
+21:19:53.456 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 1927
+Host: acme-staging.api.letsencrypt.org
+Content-Type: application/jose+json
+
+eyJub25jZSI6IkVZQnl2N3VaM29pLTNMTm5uS0VOUVRrZUIyOXZxcE1RaW5EbnBXOFl4VjQiLCJ1cmwiOiJodHRwczovL2FjbWUtc3RhZ2luZy5hcGkubGV0c2VuY3J5cHQub3JnL2FjbWUvbmV3LWF1dGh6IiwiandrIjp7Imt0eSI6IlJTQSIsIm4iOiJxUDB3aUNTRWNMb244c0xGOEFsUURzSlhFUmNkVENjbllRZVRKZlFXNmlGTHRsNlB2TUJsMkc4MEtLNkg1dDNZYTdLQmVsaHpoNng5WWVRR1FiMHhEcnY0bzdETE1oTF9NTnF0Y1FxODdyWTltSWFtQWtfUk9RMWhwWlV2a1BlRk00MmRTMXpmOXNsNC1LYzIxSVdfc3ByVUZORDQzZGlzc0Q5c25WbmVuWmdJaVBBdE41Zno3ZFpSaGF0LXFfYkJ3eVVQZTdvVHFQZlo2enR4X0daZWVlUFVmaVdYQlFXZHE0S1JKZzl3NUEwbE1qUVlZSF90cFdXVy1oZm9yQjNnTmRDeEZWNG1tOFVwdndjU1FUd2JWam1LZzc1blF1eExSSzlBVWktbmxqM0pHeGI2eGxiWVFqaUJQZld3WlJNdy1tQ0wzdlZubVdzWG0zMExIYk9UbVRvWXZfaFluSW1nN0h4c0xiTk80UnBoU2I4UnNCb0hmanUwaklOOEc5NnFMWGs1OXdjRDNtLTY2RU9vTDktQUF0WmhjQnZHeDZGLVJQXzVDcXR6OGNQaEF2cElyYWk1dXc3T1FndkpuQ19VWkNZSndnVFh3WFlKTF94LWlJM3dXdVljWWdobE90WVBEZFpFMV9qdHdRTTN0WGJ1UVE3SU1TQ0dDMnBqOEdhYlZpbnJGejM4Q3ZKYlBmMDY2ejJrZjQ3X1V0YkdCZzJBd2Y1NTRMQ1oybkRMZkVjdG9qUFRUaU1TRTVNYk1GWHdjUkE2a3FyWmRkeFRLajNucTlsSzRnR2xvbnlNSk1sSml2RHpEb1o2M1ROVkUwaGJWb3BZVGk4Y2prYXo0ai1DTVQ4LTB5eEFHQXA2U2Zlak1nQXVvY1JZZTR2WEs3V1YwelFidzhSeTFUcyIsImUiOiJBUUFCIn0sImFsZyI6IlJTMjU2In0.eyJpZGVudGlmaWVyIjogeyJ0eXBlIjogImRucyIsICJ2YWx1ZSI6ICJuYWJ1LmludCJ9LCAicmVzb3VyY2UiOiAibmV3LWF1dGh6In0.X1omdfirgFs7R1txslM3u0cfgvwBOeAcvGYgdwlLYCnSjY7MCDR9g7uw-n3A-UheHMTCpd2ietuAwuSWBs5LslmLoTax9H9eylAih5BxE59xhbPZxQ9-yZ_4RdcXRIHAdGuYXbGxsotOXEh-VwMQuzzmEkTQy7-fqrV1R8DlX6mzr_Aow_d9mwz1W0fFE0T5BhNcyrCqovnE99Be5zGWZ3pR4V9GT37BQOgbDf5-YrEwX8prresXYtNA4_EBWtgy1Bubb2XdrwkEqsM6fjHLLHXrJ4JmHt5-35oS44XgLK1dTc4WRKHD1ThT_uVSdZI7nYWcnrB5H5u_yC0Uai-OYobeR_rYA7ekrVBmaz6D4GOaG6JOvDhencJIjCatRwbJdAJVlVgisab3bqEWfo2BWLbmSBNgmcMt1NwpxCtZCiMb6i5jtcGKBqDEZi7xZJUqXW09q_-B9qxWwGe8HLZMPcS_gfkYpi6koqWD1uatXcmMa9irMzJA65W-JuRGBImFbb0J8M4bKYcHuUopRwD-zu3TxmBPlYADdkLaLEm5GYl9h9E57mC9bGlcsIXJcwPqPK7EiAj6bdkczJOHtTuA1Z39tlihEjWl1uZZhUTwq8TuB6Bm82aTwEgMM-RZUJ1xKjQsdwdJ-T8zvVLw3VQpjNsngu_x5ydQlS5zVc1mm4E
+21:19:53.456 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:54.107 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 201 Created
+Server: nginx
+Content-Type: application/json
+Content-Length: 1002
+Boulder-Request-Id: K1VymCROrJRlWgBzqTrwoj_fa6BJ7CvpNo7SSTN7AXM
+Boulder-Requester: 2452925
+Link: <https://acme-staging.api.letsencrypt.org/acme/new-cert>;rel="next"
+Location: https://acme-staging.api.letsencrypt.org/acme/authz/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q
+Replay-Nonce: 2qOenDRC_hIl7fbyD6bKuXWBCuE7m7UmP0Ni-yqRwkA
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+Expires: Sat, 03 Jun 2017 19:19:54 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:54 GMT
+Connection: keep-alive
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "nabu.int"
+  },
+  "status": "pending",
+  "expires": "2017-06-10T19:19:53.937708254Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "status": "pending",
+      "uri": "https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118922",
+      "token": "_w6JK4snjUBwTtjmCBbKAEHFi_52gk2lNOcC-kK7KlI"
+    },
+    {
+      "type": "tls-sni-01",
+      "status": "pending",
+      "uri": "https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118923",
+      "token": "lilUpqdZF3Edp01wi4a1HUQ_06pWTq3obn-yeTV4s8s"
+    },
+    {
+      "type": "http-01",
+      "status": "pending",
+      "uri": "https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924",
+      "token": "tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224"
+    }
+  ],
+  "combinations": [
+    [
+      0
+    ],
+    [
+      2
+    ],
+    [
+      1
+    ]
+  ]
+}
+21:19:54.108 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:54.179 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:54.179 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - POST /acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924 HTTP/1.1
+
+21:19:54.180 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 2077
+Host: acme-staging.api.letsencrypt.org
+Content-Type: application/jose+json
+
+eyJub25jZSI6IjJxT2VuRFJDX2hJbDdmYnlENmJLdVhXQkN1RTdtN1VtUDBOaS15cVJ3a0EiLCJ1cmwiOiJodHRwczovL2FjbWUtc3RhZ2luZy5hcGkubGV0c2VuY3J5cHQub3JnL2FjbWUvY2hhbGxlbmdlL0FXZ0FWQXlNSkFWaXhHMDZBdjRYNG56dUhibUt2Qm9XVVgyRHJxNGlNX1EvNDIxMTg5MjQiLCJqd2siOnsia3R5IjoiUlNBIiwibiI6InFQMHdpQ1NFY0xvbjhzTEY4QWxRRHNKWEVSY2RUQ2NuWVFlVEpmUVc2aUZMdGw2UHZNQmwyRzgwS0s2SDV0M1lhN0tCZWxoemg2eDlZZVFHUWIweERydjRvN0RMTWhMX01OcXRjUXE4N3JZOW1JYW1Ba19ST1ExaHBaVXZrUGVGTTQyZFMxemY5c2w0LUtjMjFJV19zcHJVRk5ENDNkaXNzRDlzblZuZW5aZ0lpUEF0TjVmejdkWlJoYXQtcV9iQnd5VVBlN29UcVBmWjZ6dHhfR1plZWVQVWZpV1hCUVdkcTRLUkpnOXc1QTBsTWpRWVlIX3RwV1dXLWhmb3JCM2dOZEN4RlY0bW04VXB2d2NTUVR3YlZqbUtnNzVuUXV4TFJLOUFVaS1ubGozSkd4YjZ4bGJZUWppQlBmV3daUk13LW1DTDN2Vm5tV3NYbTMwTEhiT1RtVG9Zdl9oWW5JbWc3SHhzTGJOTzRScGhTYjhSc0JvSGZqdTBqSU44Rzk2cUxYazU5d2NEM20tNjZFT29MOS1BQXRaaGNCdkd4NkYtUlBfNUNxdHo4Y1BoQXZwSXJhaTV1dzdPUWd2Sm5DX1VaQ1lKd2dUWHdYWUpMX3gtaUkzd1d1WWNZZ2hsT3RZUERkWkUxX2p0d1FNM3RYYnVRUTdJTVNDR0MycGo4R2FiVmluckZ6MzhDdkpiUGYwNjZ6MmtmNDdfVXRiR0JnMkF3ZjU1NExDWjJuRExmRWN0b2pQVFRpTVNFNU1iTUZYd2NSQTZrcXJaZGR4VEtqM25xOWxLNGdHbG9ueU1KTWxKaXZEekRvWjYzVE5WRTBoYlZvcFlUaThjamthejRqLUNNVDgtMHl4QUdBcDZTZmVqTWdBdW9jUlllNHZYSzdXVjB6UWJ3OFJ5MVRzIiwiZSI6IkFRQUIifSwiYWxnIjoiUlMyNTYifQ.eyJyZXNvdXJjZSI6ICJjaGFsbGVuZ2UiLCAia2V5QXV0aG9yaXphdGlvbiI6ICJ0bjZHMWdvYzlHTk5RMVBoUDBZM3RDXzh4M1Z4NE5ISTVROGRHbDNPMjI0LlJ3NzNjSDg1VFhUcERodzZlSS1wS3pDUDZBVndOelFEVEx3ZlhndlB2WGcifQ.OxyuwkPkTFd-vvWDl5o8sjt24h-5S4ykc38-mByCEnbKqodJQDkAFVizcs9WR18FrS4nSBe_3_P8oBNOrYHJKifH0oF0-eLEPBNHq5BBmZcfZsRulsB_kfOy_PlDN5NOicvwWEJnan0DWPr6i2YVuxpA1ZU91InmUFud2gI9kqJNIhjPIBt4FMzv_-oQUlcRNdNfatMCDdkNUGrAcFEQ78Mdi8qTPLA5ZFS4sBsPb5K0iBPuqbuspnMncpQkHTP3ZUY8IgGx7gKe9wCd-B7OF4Cuu9giUGj9CniW6K_OEj_j2WTlGJzyJmdrRGonuoHMJePQE4omn0MKGEJJUamqPWPdgGO181du9KbOXSTO-UwsQBKDLZT6b2DCxH8ufGnhyrZKJCOrYCp6P_l7_2sgrVhQVsSUB9U-PFWqBfVrP2eYhUxcYK_CmbT-ZNlQV7gTFu_Do6TJE7kk5gKLOieR1PWAPWK9ZRK3bQJraQoteWhMnFK5OsSxSdc6joLe5y4w6g3SgKwe1OtUNixxVKS1WdGK24OqySksgQKBaQasRkZ9lc0vI_4opbmvwBknGuoAkHl9OEcIAPQLTsZwf-M9WSxF60jWZzkGkXY-Y9YQo8fGNeoVeaMKEVjsYpjKoNibS-nEs3DhP4JP5UJjpwJdwdfSyVD3HokrU-Jj13zkoTE
+21:19:54.180 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:54.680 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 202 Accepted
+Server: nginx
+Content-Type: application/json
+Content-Length: 338
+Boulder-Request-Id: zToEZCHm5Y0dMgXqF9PgFICyueda_D0vTC4WTVKDJYU
+Boulder-Requester: 2452925
+Link: <https://acme-staging.api.letsencrypt.org/acme/authz/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q>;rel="up"
+Location: https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924
+Replay-Nonce: p8FiXWadzLuHeDcgLz7MWd9pZ2DF0u-xX5PI68jDY9g
+Expires: Sat, 03 Jun 2017 19:19:54 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:54 GMT
+Connection: keep-alive
+
+{
+  "type": "http-01",
+  "status": "pending",
+  "uri": "https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924",
+  "token": "tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224",
+  "keyAuthorization": "tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224.Rw73cH85TXTpDhw6eI-pKzCP6AVwNzQDTLwfXgvPvXg"
+}
+21:19:54.680 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:57.691 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:57.691 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - GET /acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924 HTTP/1.1
+
+21:19:57.692 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - Content-Length: 0
+Host: acme-staging.api.letsencrypt.org
+
+
+21:19:57.692 [pool-1-thread-2] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
+21:19:58.100 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - HTTP/1.1 202 Accepted
+Server: nginx
+Content-Type: application/json
+Content-Length: 757
+Boulder-Request-Id: CAqOOeAQAwKSE4Su82OMZygJUpdnIG1tub3ShpnYvCM
+Link: <https://acme-staging.api.letsencrypt.org/acme/authz/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q>;rel="up"
+Location: https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924
+Replay-Nonce: ydJ8RVoUyKuuqIoaN75HRLaO4Buy60pGSS8eD9efNy0
+Expires: Sat, 03 Jun 2017 19:19:57 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 03 Jun 2017 19:19:57 GMT
+Connection: keep-alive
+
+{
+  "type": "http-01",
+  "status": "invalid",
+  "error": {
+    "type": "urn:acme:error:connection",
+    "detail": "DNS problem: NXDOMAIN looking up A for nabu.int",
+    "status": 400
+  },
+  "uri": "https://acme-staging.api.letsencrypt.org/acme/challenge/AWgAVAyMJAVixG06Av4X4nzuHbmKvBoWUX2Drq4iM_Q/42118924",
+  "token": "tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224",
+  "keyAuthorization": "tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224.Rw73cH85TXTpDhw6eI-pKzCP6AVwNzQDTLwfXgvPvXg",
+  "validationRecord": [
+    {
+      "url": "http://nabu.int/.well-known/acme-challenge/tn6G1goc9GNNQ1PhP0Y3tC_8x3Vx4NHI5Q8dGl3O224",
+      "hostname": "nabu.int",
+      "port": "80",
+      "addressesResolved": [],
+      "addressUsed": "",
+      "addressesTried": []
+    }
+  ]
+}
+21:19:58.100 [pool-1-thread-1] INFO  b.n.l.n.i.ContainerDebugger$PrintContainer - 
