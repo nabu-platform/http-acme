@@ -7,6 +7,7 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.security.KeyPair;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -69,6 +70,7 @@ public class AcmeClient {
 	private KeyPair user;
 	private Directory directory;
 	private URI directoryUri;
+	private int maxChainSize = 10;
 	
 	public AcmeClient(HTTPClient client, KeyPair user, URI directory) {
 		this.client = client;
@@ -149,24 +151,39 @@ public class AcmeClient {
 		}
 	}
 	
-	public X509Certificate certificate(KeyPair pair, SignatureType type, X500Principal subject, Date notBefore, Date notAfter, String...alternateDomains) {
+	public X509Certificate[] certify(String domain, KeyPair pair, SignatureType type, X500Principal subject, Date notBefore, Date notAfter, String...alternateDomains) {
 		try {
-			byte[] pkcs10 = BCSecurityUtils.generatePKCS10(pair, type, subject, alternateDomains);
+			Map<String, String> parts = SecurityUtils.getParts(subject);
+			X500Principal principal = SecurityUtils.createX500Principal(domain, parts.get("O"), parts.get("OU"), parts.get("L"), parts.get("ST"), parts.get("C"));
+			byte[] pkcs10 = BCSecurityUtils.generatePKCS10(pair, type, principal, alternateDomains);
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("notBefore", new DateTimeFormat().format(notBefore));
 			map.put("notAfter", new DateTimeFormat().format(notAfter));
 			map.put("csr", Base64Url.encode(pkcs10));
-			HTTPResponse response = executeSecure(getDirectory().getNewCert(), stringify(map), pair);
+			map.put("resource", "new-cert");
+			HTTPResponse response = executeSecure(getDirectory().getNewCert(), stringify(map), user);
 			if (!"application/pkix-cert".equals(MimeUtils.getContentType(response.getContent().getHeaders()))) {
 				throw new RuntimeException("Wrong content type: " + MimeUtils.getContentType(response.getContent().getHeaders()));
 			}
 			ReadableContainer<ByteBuffer> readable = ((ContentPart) response.getContent()).getReadable();
+			List<X509Certificate> certificates = new ArrayList<X509Certificate>();
 			try {
-				return SecurityUtils.parseCertificate(IOUtils.toInputStream(readable));
+				// get the actual certificate
+				certificates.add(SecurityUtils.parseCertificate(IOUtils.toInputStream(readable)));
+				// try to resolve the chain
+				while (certificates.size() < maxChainSize && links.get("up") != null) {
+					URI uri = links.remove("up");
+					response = execute(new DefaultHTTPRequest("GET", uri.getPath(), new PlainMimeEmptyPart(null,
+						new MimeHeader("Content-Length", "0"),
+						new MimeHeader("Host", uri.getAuthority()))), uri.getScheme().equals("https"));
+					readable = ((ContentPart) response.getContent()).getReadable();
+					certificates.add(SecurityUtils.parseCertificate(IOUtils.toInputStream(readable)));
+				}
 			}
 			finally {
 				readable.close();
 			}
+			return certificates.toArray(new X509Certificate[certificates.size()]);
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
@@ -231,15 +248,16 @@ public class AcmeClient {
 	private HTTPResponse execute(HTTPRequest request, boolean secure) {
 		try {
 			HTTPResponse response = client.execute(request, null, secure, true);
-			if (response.getCode() >= 300) {
-				throw new IllegalStateException("Received error from server: " + response.getCode());
-			}
 			nonce = nonce(response);
 			processLinks(response);
-			
+
 			Header header = MimeUtils.getHeader("Location", response.getContent().getHeaders());
 			if (header != null) {
 				this.location = new URI(header.getValue());
+			}
+			
+			if (response.getCode() >= 300) {
+				throw new IllegalStateException("Received error from server: " + response.getCode());
 			}
 			return response;
 		}

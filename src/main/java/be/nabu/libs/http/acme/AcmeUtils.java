@@ -33,7 +33,7 @@ public class AcmeUtils {
 		}
 	}
 	
-	public URI getHTTPUri(Challenge challenge) {
+	public static URI getHttpUri(Challenge challenge) {
 		try {
 			return new URI("http://" + challenge.getDomain() + "/.well-known/acme-challenge/" + challenge.getToken());
 		}

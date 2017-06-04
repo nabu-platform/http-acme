@@ -5,7 +5,6 @@ import java.net.URI;
 import java.nio.charset.Charset;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import be.nabu.libs.types.TypeUtils;
 import be.nabu.libs.types.api.ComplexType;
@@ -13,7 +12,6 @@ import be.nabu.libs.types.binding.api.Window;
 import be.nabu.libs.types.binding.json.JSONBinding;
 import be.nabu.libs.types.java.BeanResolver;
 
-@XmlRootElement(name = "directory")
 public class Directory {
 
 	private URI keyChange, newAuthz, newCert, newReg, revokeCert;
